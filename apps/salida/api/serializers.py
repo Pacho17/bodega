@@ -5,4 +5,4 @@ from apps.salida.models import Post
 class SalidaSerializer(ModelSerializer):
     class Meta:
         model=Post
-        fields = 'nombre','categoria','cantidad','create_at'
+        fields =[ 'id','nombre','categoria','cantidad','create_at']

@@ -7,6 +7,6 @@ class Post(models.Model):
     categoria=models.TextField(max_length=500)
     cantidad=models.IntegerField()
     create_at=models.DateTimeField(auto_now_add=True)
-    
+
     def __srt__(self):
         return self
