@@ -1,12 +1,23 @@
 from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from rest_framework import status
 from apps.registro.models import Post
 from apps.registro.api.serializers import RegistroSerializer
 
 
-class RegistroViewSet(ViewSet):
+
+
+
+class ModelViewSet(ModelViewSet):
+    serializer_class = RegistroSerializer
+    queryset = Post.objects.all()
+
+
+
+
+"""class RegistroViewSet(ViewSet):
     def list(self, request):
         serializer = RegistroSerializer(Post.objects.all(), many=True)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
@@ -45,4 +56,4 @@ class RegistroViewSet(ViewSet):
         serializer.save()
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
-# Create your views here.
+# Create your views here."""
